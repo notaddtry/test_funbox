@@ -1,17 +1,37 @@
 .wrapper_list {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .wrapper_list {
+    flex-wrap: wrap;
+  }
+  .wrapper_item:first-child {
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper_list {
+    flex-direction: column;
+  }
+  .wrapper_item:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
 .wrapper_item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-.wrapper_item:not(:last-child) {
+/* .wrapper_item:not(:last-child) {
   margin-right: 5rem;
-}
+} */
 .wrapper_content {
   cursor: pointer;
   position: relative;
@@ -34,6 +54,8 @@
   );
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
   border-radius: 12px;
+  background: #1698d9;
+  padding: 0 0.3rem;
 }
 
 .item_content {
@@ -48,8 +70,8 @@
   );
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
   background: #f2f2f2;
-  width: 316px;
-  height: 476px;
+  width: 320px;
+  height: 470px;
   padding: 21px 51px;
   box-sizing: border-box;
   display: flex;
@@ -89,7 +111,6 @@
   right: 1rem;
   width: 5rem;
   height: 5rem;
-  background: #000;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -97,7 +118,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-
+  background-color: #1698d9;
   line-height: 1.5rem;
 }
 
@@ -116,4 +137,48 @@
   text-decoration: underline;
   text-decoration-style: dashed;
   cursor: pointer;
+}
+
+/* ._selected {
+  background: #d91667;
+}
+._selected_block {
+  background: #d91667 !important;
+}
+._selected:hover {
+  background: #e52e7a;
+} */
+
+.wrapper_content:hover,
+.wrapper_content:hover .label {
+  background-color: #2ea8e6;
+}
+.selected,
+.selected .label {
+  background-color: #d91667;
+}
+.selected:hover,
+.selected:hover .label {
+  background-color: #e52e7a;
+}
+
+.block,
+.block .label {
+  background-color: #1698d9 !important;
+}
+.selected.block,
+.selected.block.label {
+  background-color: #d91667 !important;
+}
+
+.text_gold {
+  color: #ffff66;
+}
+.disabled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
 }

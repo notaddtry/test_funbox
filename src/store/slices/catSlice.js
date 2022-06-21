@@ -30,7 +30,7 @@ const initialState = {
       text: 'курой',
       count: '100',
       bonus: '5 мышей',
-      available: true,
+      available: false,
       weight: 5,
       selected: false,
       comment: 'заказчик доволен',

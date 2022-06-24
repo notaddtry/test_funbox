@@ -1,0 +1,9 @@
+<svg width="320" height="480" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <rect x="10" y="10" width="320" height="480" stroke="blue" fill="black"
+       fill-opacity="0.5" stroke-opacity="0.8"/>
+       <defs>
+<clipPath id="clip-ff" clipPathUnits="objectBoundingBox">
+  <polygon points="0,0  1,0  1,0.1  0.5, 0.2 0,0.1"></polygon>
+</clipPath>
+  </defs>
+</svg>

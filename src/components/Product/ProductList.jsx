@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
-import ProductItem from './ProductItem'
+import React from 'react'
 import { useSelector } from 'react-redux'
+
+import ProductItem from './ProductItem'
 
 import styles from './product.module.css'
 
 const ProductList = () => {
   const products = useSelector((state) => state.cat.cats)
-
-  useEffect(() => {
-    console.log(products)
-  }, [])
 
   return (
     <div className={styles.wrapper_list}>

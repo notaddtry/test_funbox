@@ -1,15 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { selectItem } from '../../store/slices/catSlice'
-import styles from './product.module.css'
 
-const catStyles = {
-  standartColor: '#1698D9',
-  hoverColor: '#2EA8E6',
-  selectedColor: '#D91667',
-  selectedHoverColor: '#E52E7A',
-  disabledColor: '',
-}
+import { selectItem } from '../../store/slices/catSlice'
+
+import styles from './product.module.css'
 
 const ProductItem = ({
   id,
@@ -40,6 +34,14 @@ const ProductItem = ({
   }
 
   useEffect(() => {
+    if (!available) {
+      setColorClassNames((prev) => [
+        ...prev,
+        styles.disabled_background,
+        styles.disabled_text,
+      ])
+      return
+    }
     if (selected) {
       setColorClassNames((prev) => [...prev, styles.selected])
     } else {
@@ -47,24 +49,43 @@ const ProductItem = ({
         prev.filter((colors) => colors !== styles.selected)
       )
     }
-  }, [selected])
+  }, [selected, available])
 
   return (
-    <div className={styles.wrapper_item}>
+    <div
+      className={styles.wrapper_item}
+      style={{ pointerEvents: available ? 'all' : 'none' }}>
       <div
         ref={wrapperRef}
         className={`${styles.wrapper_content} ${colorClassNames.join(' ')}`}
         onMouseOut={(e) => removeClass(e)}
         onClick={(e) => handleBuy(e)}>
         <div className={styles.item_content}>
-          <span className={`${styles.secondary_text} ${styles.pretitle}`}>
+          <span
+            className={`${styles.secondary_text} ${styles.pretitle} ${
+              !available && styles.disabled_text
+            }`}>
             Сказочное заморское яство
           </span>
           <h1>Нямушка</h1>
           <h2>с {text}</h2>
-          <span className={styles.secondary_text}>{count} порций</span>
-          <span className={styles.secondary_text}>{bonus} в подарок</span>
-          <img src={img} alt='cat' className={styles.img} />
+          <span
+            className={`${styles.secondary_text} ${
+              !available && styles.disabled_text
+            }`}>
+            {count} порций
+          </span>
+          <span
+            className={`${styles.secondary_text} ${
+              !available && styles.disabled_text
+            }`}>
+            {bonus} в подарок
+          </span>
+          <div className={styles.img_wrapper}>
+            <img src={img} alt='cat' className={styles.img} />
+            {!available && <div className={styles.disabled}></div>}
+          </div>
+
           <div
             ref={labelRef}
             className={`${styles.label} ${colorClassNames.join(' ')}`}>
@@ -85,7 +106,6 @@ const ProductItem = ({
           </span>
         ) : (
           <>
-            <div className={styles.disabled}></div>
             <span className={styles.text_gold}>
               Печалька, c {text} закончился.
             </span>

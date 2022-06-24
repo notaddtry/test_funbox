@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
@@ -99,10 +100,14 @@
   font-size: 1rem;
 }
 
-.img {
+.img_wrapper {
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+.img {
+  display: block;
 }
 
 .label {
@@ -111,7 +116,7 @@
   right: 1rem;
   width: 5rem;
   height: 5rem;
-  color: #fff;
+  color: #fff !important;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -181,4 +186,12 @@
   bottom: 0;
   left: 0;
   background: rgba(255, 255, 255, 0.5);
+}
+
+.disabled_background {
+  background-color: #b3b3b3;
+}
+
+.disabled_text {
+  color: #b3b3b3;
 }

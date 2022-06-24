@@ -82,7 +82,11 @@ const ProductItem = ({
             {bonus} в подарок
           </span>
           <div className={styles.img_wrapper}>
-            <img src={img} alt='cat' className={styles.img} />
+            <img
+              src={`${process.env.PUBLIC_URL}${img}`}
+              alt='cat'
+              className={styles.img}
+            />
             {!available && <div className={styles.disabled}></div>}
           </div>
 

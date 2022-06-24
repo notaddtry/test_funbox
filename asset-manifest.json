@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/test_funbox/static/css/main.95c53077.css",
-    "main.js": "/test_funbox/static/js/main.76b1a6b0.js",
+    "main.js": "/test_funbox/static/js/main.de434c8b.js",
     "static/media/bg.png": "/test_funbox/static/media/bg.8b93e2127ee44e2a8146.png",
     "static/media/Exo2.0-Thin.otf": "/test_funbox/static/media/Exo2.0-Thin.51c257bfa8ec3e0cfb4b.otf",
     "index.html": "/test_funbox/index.html",
     "main.95c53077.css.map": "/test_funbox/static/css/main.95c53077.css.map",
-    "main.76b1a6b0.js.map": "/test_funbox/static/js/main.76b1a6b0.js.map"
+    "main.de434c8b.js.map": "/test_funbox/static/js/main.de434c8b.js.map"
   },
   "entrypoints": [
     "static/css/main.95c53077.css",
-    "static/js/main.76b1a6b0.js"
+    "static/js/main.de434c8b.js"
   ]
 }
